@@ -5,30 +5,8 @@ NTU Social Lab 內部培訓工作坊教材。
 
 ---
 
-## 00 - 開始之前
 
-在進入任何專案之前，請先完成以下環境建置。
-
-### 取得教材
-
-前往 [github.com](https://github.com) 註冊帳號，記住您的使用者名稱和密碼。
-
-**方法一：下載 ZIP（不需要 Git）**
-
-1. 前往 [GitHub 頁面](https://github.com/hungchunchang/SocialRoboticsProgram)
-2. 點擊綠色的 **Code** 按鈕 → **Download ZIP**
-3. 解壓縮到你想要的位置
-
-**方法二：使用 Git Clone（推薦）**
-
-1. 安裝 Git：前往 [git-scm.com](https://git-scm.com) 下載並安裝
-2. 打開終端機，進入想存放的資料夾，執行：
-
-```bash
-git clone https://github.com/hungchunchang/SocialRoboticsProgram.git
-```
-
-### 環境建置
+## 開始：環境建置
 
 詳細步驟請參考 [`00_simple_chatbot/README.md`](00_simple_chatbot/README.md)，包含：
 
@@ -42,42 +20,42 @@ git clone https://github.com/hungchunchang/SocialRoboticsProgram.git
 
 ## 課程章節
 
-### 01 - FastAPI Chat
+### 01 - [FastAPI Chat](01_fastapi_chat/README.md)
 > 用 Python 建立你的第一個聊天機器人 API
 
 - 認識 **Client-Server** 架構與 **HTTP / REST API**
 - 用 FastAPI 建立後端，用 Python CLI 當客戶端
 - 學會修改 System Prompt 自訂機器人角色
 
-### 02 - HTTP Chat：Android App + Flask
+### 02 - HTTP Chat：[Android App + Flask](02_jxw_http_chat/README.md)
 > 從終端機走向手機 App
 
 - Client 從 Python 換成 **Android App**（Java）
 - 認識 **MVVM** 架構模式
 - 後端改用 Flask，設計分階段對話流程
 
-### 03 - Audio WebSocket
+### 03 - [Audio WebSocket](03_audio_websocket/README.md)
 > 即時語音串流 —— 從 HTTP 升級為 WebSocket
 
 - 理解 HTTP 與 **WebSocket** 的差異
 - 即時雙向音訊傳輸（Full-Duplex）
 - 語音活動偵測（VAD）與音訊編碼
 
-### 04 - Video Streaming
+### 04 - [Video Streaming](04_video_streaming/README.md)
 > 即時影像串流 —— 初探 WebRTC
 
 - 認識 **WebRTC** 點對點通訊技術
 - 理解 **Signaling**（信令）、**SDP**、**ICE Candidate**
 - 從手機攝影機串流影像到伺服器
 
-### 05 - Video Call
+### 05 - [Video Call](05_video_call/README.md)
 > 雙向視訊通話 —— 完整的 WebRTC 應用
 
 - 完整通話流程：撥打、接聽、掛斷
 - 自己架設 **Node.js** 信令伺服器
 - 了解 NAT 穿越（STUN / TURN）
 
-### 06 - WoZ Controller
+### 06 - [WoZ Controller](06_woz_controller/README.md)
 > Wizard-of-Oz 遙控機器人 —— 整合所有技術
 
 - 認識 **Wizard-of-Oz** 實驗方法
@@ -85,7 +63,7 @@ git clone https://github.com/hungchunchang/SocialRoboticsProgram.git
 - 結合 HTTP、WebSocket、WebRTC 與 Robot API
 - 用腳本自動化機器人表演
 
-### 07 - 拆解一個 Android App
+### 07 - [拆解一個 Android App](07_anatomy_of_android_app/README.md)
 > 以 Video Call App 為例，理解 Kotlin Android 專案結構
 
 - 理解 Android 專案的資料夾結構與設定檔
