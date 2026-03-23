@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Social Robotics Lab"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#2c3e50"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select a feature to test"
+            android:textSize="16sp"
+            android:textColor="#7f8c8d"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Ch2: HTTP Chat -->
+        <Button
+            android:id="@+id/btnHttpChat"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="Ch2 - HTTP Chat"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#3498db"/>
+
+        <!-- Ch3: WebSocket Audio -->
+        <Button
+            android:id="@+id/btnWsAudio"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="Ch3 - WebSocket Audio"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#2ecc71"/>
+
+        <!-- Ch4: WebRTC Video Streaming -->
+        <Button
+            android:id="@+id/btnWebrtcStream"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="Ch4 - Video Streaming"
+            android:textSize="16sp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="#e67e22"/>
+
+        <!-- Ch5: Video Call -->
+        <Button
+            android:id="@+id/btnVideoCall"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="Ch5 - Video Call"
+            android:textSize="16sp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="#9b59b6"/>
+
+        <!-- Settings -->
+        <Button
+            android:id="@+id/btnSettings"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Server Settings"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+</ScrollView>

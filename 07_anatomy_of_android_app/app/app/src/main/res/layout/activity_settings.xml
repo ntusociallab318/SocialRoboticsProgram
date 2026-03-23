@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- HTTP Chat -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ch2 - HTTP Chat Server"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"/>
+        <EditText
+            android:id="@+id/etHttpUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="http://192.168.0.100:8000"
+            android:inputType="textUri"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- WebSocket Audio -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ch3 - WebSocket Audio Server"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/etWsAudioUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ws://192.168.0.100:8765"
+            android:inputType="textUri"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- WebRTC Streaming -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ch4 - WebRTC Streaming Signaling"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/etWebrtcStreamUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ws://192.168.0.100:6868"
+            android:inputType="textUri"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Video Call -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ch5 - Video Call Signaling"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/etVideoCallUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="wss://sociallab.duckdns.org/videoCall/"
+            android:inputType="textUri"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- STUN / TURN -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WebRTC - STUN Server"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/etStunUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="stun:stun.l.google.com:19302"
+            android:inputType="textUri"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WebRTC - TURN Server (optional)"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+        <EditText
+            android:id="@+id/etTurnUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="turn:server:3478"
+            android:inputType="textUri"
+            android:layout_marginBottom="8dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/etTurnUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="TURN username"
+                android:layout_marginEnd="8dp"/>
+            <EditText
+                android:id="@+id/etTurnPass"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="TURN password"
+                android:inputType="textPassword"/>
+        </LinearLayout>
+
+        <!-- Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="24dp">
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Save"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnReset"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Reset Defaults"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
