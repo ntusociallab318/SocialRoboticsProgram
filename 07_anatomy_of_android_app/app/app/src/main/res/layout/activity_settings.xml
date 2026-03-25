@@ -1,162 +1,780 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Stratos Master-Detail Layout · 1024×600 Tablet -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#F8FAFC">
 
+    <!-- ════════════════════════════════════════════
+         左側導覽列  (1/3)  · Surface: #F1F5F9
+         ════════════════════════════════════════════ -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:background="#F1F5F9">
 
-        <!-- HTTP Chat -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ch2 - HTTP Chat Server"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:layout_marginTop="8dp"/>
-        <EditText
-            android:id="@+id/etHttpUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="http://192.168.0.100:8000"
-            android:inputType="textUri"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- WebSocket Audio -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ch3 - WebSocket Audio Server"
-            android:textStyle="bold"
-            android:textSize="14sp"/>
-        <EditText
-            android:id="@+id/etWsAudioUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ws://192.168.0.100:8765"
-            android:inputType="textUri"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- WebRTC Streaming -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ch4 - WebRTC Streaming Signaling"
-            android:textStyle="bold"
-            android:textSize="14sp"/>
-        <EditText
-            android:id="@+id/etWebrtcStreamUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ws://192.168.0.100:6868"
-            android:inputType="textUri"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Video Call -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ch5 - Video Call Signaling"
-            android:textStyle="bold"
-            android:textSize="14sp"/>
-        <EditText
-            android:id="@+id/etVideoCallUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="wss://sociallab.duckdns.org/videoCall/"
-            android:inputType="textUri"
-            android:layout_marginBottom="24dp"/>
-
-        <!-- WoZ Controller -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ch6 - WoZ Controller Server"
-            android:textStyle="bold"
-            android:textSize="14sp"/>
-        <EditText
-            android:id="@+id/etWozUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="wss://sociallab.duckdns.org/ntl_demo/"
-            android:inputType="textUri"
-            android:layout_marginBottom="24dp"/>
-
-        <!-- STUN / TURN -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="WebRTC - STUN Server"
-            android:textStyle="bold"
-            android:textSize="14sp"/>
-        <EditText
-            android:id="@+id/etStunUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="stun:stun.l.google.com:19302"
-            android:inputType="textUri"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="WebRTC - TURN Server (optional)"
-            android:textStyle="bold"
-            android:textSize="14sp"/>
-        <EditText
-            android:id="@+id/etTurnUrl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="turn:server:3478"
-            android:inputType="textUri"
-            android:layout_marginBottom="8dp"/>
+        <!-- 導覽列標頭 -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/etTurnUser"
-                android:layout_width="0dp"
+            android:layout_height="64dp"
+            android:background="#005FB8"
+            android:gravity="center_vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="16dp">
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="TURN username"
-                android:layout_marginEnd="8dp"/>
-            <EditText
-                android:id="@+id/etTurnPass"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="TURN password"
-                android:inputType="textPassword"/>
+                android:text="Server Settings"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="#FFFFFF"/>
         </LinearLayout>
 
-        <!-- Buttons -->
+        <!-- ── Nav: Ch2 HTTP Chat (預設選中) ── -->
         <LinearLayout
+            android:id="@+id/navCh2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="24dp">
-
-            <Button
-                android:id="@+id/btnSave"
+            android:gravity="center_vertical"
+            android:background="#DBEAFE"
+            android:clickable="true"
+            android:focusable="true">
+            <View
+                android:id="@+id/navCh2Accent"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"
+                android:background="#005FB8"/>
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Save"
-                android:layout_marginEnd="8dp"/>
-
-            <Button
-                android:id="@+id/btnReset"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Reset Defaults"/>
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp">
+                <TextView
+                    android:id="@+id/navCh2Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ch2"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:id="@+id/navCh2Sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HTTP Chat"
+                    android:textSize="13sp"
+                    android:textColor="#005FB8"/>
+            </LinearLayout>
         </LinearLayout>
+
+        <!-- ── Nav: Ch3 WebSocket Audio ── -->
+        <LinearLayout
+            android:id="@+id/navCh3"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <View
+                android:id="@+id/navCh3Accent"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp">
+                <TextView
+                    android:id="@+id/navCh3Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ch3"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:id="@+id/navCh3Sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WebSocket Audio"
+                    android:textSize="13sp"
+                    android:textColor="#475569"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── Nav: Ch4 Video Streaming ── -->
+        <LinearLayout
+            android:id="@+id/navCh4"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <View
+                android:id="@+id/navCh4Accent"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp">
+                <TextView
+                    android:id="@+id/navCh4Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ch4"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:id="@+id/navCh4Sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Video Streaming"
+                    android:textSize="13sp"
+                    android:textColor="#475569"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── Nav: Ch5 Video Call ── -->
+        <LinearLayout
+            android:id="@+id/navCh5"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <View
+                android:id="@+id/navCh5Accent"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp">
+                <TextView
+                    android:id="@+id/navCh5Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ch5"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:id="@+id/navCh5Sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Video Call"
+                    android:textSize="13sp"
+                    android:textColor="#475569"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── Nav: Ch6 WoZ Controller ── -->
+        <LinearLayout
+            android:id="@+id/navCh6"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <View
+                android:id="@+id/navCh6Accent"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp">
+                <TextView
+                    android:id="@+id/navCh6Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ch6"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:id="@+id/navCh6Sub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WoZ Controller"
+                    android:textSize="13sp"
+                    android:textColor="#475569"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── 分隔線 ── -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="#CBD5E1"/>
+
+        <!-- ── Nav: WebRTC / ICE ── -->
+        <LinearLayout
+            android:id="@+id/navWebrtc"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <View
+                android:id="@+id/navWebrtcAccent"
+                android:layout_width="4dp"
+                android:layout_height="match_parent"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="12dp">
+                <TextView
+                    android:id="@+id/navWebrtcTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WebRTC"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:id="@+id/navWebrtcSub"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STUN / TURN"
+                    android:textSize="13sp"
+                    android:textColor="#475569"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 彈性空白 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Reset 按鈕 -->
+        <Button
+            android:id="@+id/btnReset"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="12dp"
+            android:text="Reset Defaults"
+            android:textColor="#005FB8"/>
 
     </LinearLayout>
-</ScrollView>
+
+    <!-- 分隔線 -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#CBD5E1"/>
+
+    <!-- ════════════════════════════════════════════
+         右側詳細內容  (2/3)  · Surface: #FFFFFF
+         ════════════════════════════════════════════ -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="40dp">
+
+            <!-- ─── Section Ch2：HTTP Chat ─── -->
+            <LinearLayout
+                android:id="@+id/sectionCh2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HTTP Chat Server"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chapter 2 · Backend endpoint for HTTP-based robot chat API"
+                    android:textSize="14sp"
+                    android:textColor="#475569"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E2E8F0"
+                    android:layout_marginBottom="32dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SERVER URL"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="8dp"/>
+                <EditText
+                    android:id="@+id/etHttpUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="http://192.168.0.100:8000"
+                    android:inputType="textUri"
+                    android:textSize="15sp"
+                    android:padding="12dp"/>
+                <TextView
+                    android:id="@+id/statusHttpUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓  Saved"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="#15803D"
+                    android:layout_marginTop="4dp"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <!-- ─── Section Ch3：WebSocket Audio ─── -->
+            <LinearLayout
+                android:id="@+id/sectionCh3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WebSocket Audio Server"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chapter 3 · WebSocket endpoint for real-time audio streaming"
+                    android:textSize="14sp"
+                    android:textColor="#475569"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E2E8F0"
+                    android:layout_marginBottom="32dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SERVER URL"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="8dp"/>
+                <EditText
+                    android:id="@+id/etWsAudioUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="ws://192.168.0.100:8765"
+                    android:inputType="textUri"
+                    android:textSize="15sp"
+                    android:padding="12dp"/>
+                <TextView
+                    android:id="@+id/statusWsAudioUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓  Saved"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="#15803D"
+                    android:layout_marginTop="4dp"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <!-- ─── Section Ch4：Video Streaming ─── -->
+            <LinearLayout
+                android:id="@+id/sectionCh4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WebRTC Streaming Signaling"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chapter 4 · Signaling server for WebRTC camera streaming"
+                    android:textSize="14sp"
+                    android:textColor="#475569"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E2E8F0"
+                    android:layout_marginBottom="32dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SIGNALING URL"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="8dp"/>
+                <EditText
+                    android:id="@+id/etWebrtcStreamUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="ws://192.168.0.100:6868"
+                    android:inputType="textUri"
+                    android:textSize="15sp"
+                    android:padding="12dp"/>
+                <TextView
+                    android:id="@+id/statusWebrtcStreamUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓  Saved"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="#15803D"
+                    android:layout_marginTop="4dp"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <!-- ─── Section Ch5：Video Call ─── -->
+            <LinearLayout
+                android:id="@+id/sectionCh5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Video Call Signaling"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chapter 5 · Signaling server for peer-to-peer video calls"
+                    android:textSize="14sp"
+                    android:textColor="#475569"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E2E8F0"
+                    android:layout_marginBottom="32dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SIGNALING URL"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="8dp"/>
+                <EditText
+                    android:id="@+id/etVideoCallUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="wss://sociallab.duckdns.org/videoCall/"
+                    android:inputType="textUri"
+                    android:textSize="15sp"
+                    android:padding="12dp"/>
+                <TextView
+                    android:id="@+id/statusVideoCallUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓  Saved"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="#15803D"
+                    android:layout_marginTop="4dp"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <!-- ─── Section Ch6：WoZ Controller ─── -->
+            <LinearLayout
+                android:id="@+id/sectionCh6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WoZ Controller Server"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chapter 6 · WebSocket server for Wizard-of-Oz robot control"
+                    android:textSize="14sp"
+                    android:textColor="#475569"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E2E8F0"
+                    android:layout_marginBottom="32dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SERVER URL"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="8dp"/>
+                <EditText
+                    android:id="@+id/etWozUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="wss://sociallab.duckdns.org/ntl_demo/"
+                    android:inputType="textUri"
+                    android:textSize="15sp"
+                    android:padding="12dp"/>
+                <TextView
+                    android:id="@+id/statusWozUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓  Saved"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="#15803D"
+                    android:layout_marginTop="4dp"
+                    android:visibility="invisible"/>
+            </LinearLayout>
+
+            <!-- ─── Section WebRTC / ICE ─── -->
+            <LinearLayout
+                android:id="@+id/sectionWebrtc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WebRTC / ICE Servers"
+                    android:textSize="30sp"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#0F172A"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STUN and TURN server configuration for NAT traversal"
+                    android:textSize="14sp"
+                    android:textColor="#475569"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="24dp"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#E2E8F0"
+                    android:layout_marginBottom="32dp"/>
+
+                <!-- STUN -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STUN SERVER"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="8dp"/>
+                <EditText
+                    android:id="@+id/etStunUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="stun:stun.l.google.com:19302"
+                    android:inputType="textUri"
+                    android:textSize="15sp"
+                    android:padding="12dp"/>
+                <TextView
+                    android:id="@+id/statusStunUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓  Saved"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="#15803D"
+                    android:layout_marginTop="4dp"
+                    android:visibility="invisible"/>
+
+                <!-- 間距 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"/>
+
+                <!-- TURN URL -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TURN SERVER  (optional)"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="8dp"/>
+                <EditText
+                    android:id="@+id/etTurnUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="turn:server:3478"
+                    android:inputType="textUri"
+                    android:textSize="15sp"
+                    android:padding="12dp"/>
+                <TextView
+                    android:id="@+id/statusTurnUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓  Saved"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    android:textColor="#15803D"
+                    android:layout_marginTop="4dp"
+                    android:visibility="invisible"/>
+
+                <!-- 間距 -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"/>
+
+                <!-- TURN Credentials -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TURN CREDENTIALS"
+                    android:textSize="12sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.1"
+                    android:textStyle="bold"
+                    android:textColor="#475569"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginEnd="12dp">
+                        <EditText
+                            android:id="@+id/etTurnUser"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:hint="Username"
+                            android:textSize="15sp"
+                            android:padding="12dp"/>
+                        <TextView
+                            android:id="@+id/statusTurnUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✓  Saved"
+                            android:textSize="12sp"
+                            android:textStyle="italic"
+                            android:textColor="#15803D"
+                            android:layout_marginTop="4dp"
+                            android:visibility="invisible"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <EditText
+                            android:id="@+id/etTurnPass"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:hint="Password"
+                            android:inputType="textPassword"
+                            android:textSize="15sp"
+                            android:padding="12dp"/>
+                        <TextView
+                            android:id="@+id/statusTurnPass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✓  Saved"
+                            android:textSize="12sp"
+                            android:textStyle="italic"
+                            android:textColor="#15803D"
+                            android:layout_marginTop="4dp"
+                            android:visibility="invisible"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

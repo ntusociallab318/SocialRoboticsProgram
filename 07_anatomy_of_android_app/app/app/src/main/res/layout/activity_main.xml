@@ -1,102 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:orientation="vertical"
+    android:background="#F8FAFC">
 
+    <!-- Header: 96dp 高，Stratos Primary 色 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:layout_height="96dp"
+        android:orientation="horizontal"
+        android:background="#005FB8"
+        android:gravity="center_vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Social Robotics Lab"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="#2c3e50"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="8dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Select a feature to test"
-            android:textSize="16sp"
-            android:textColor="#7f8c8d"
-            android:layout_marginBottom="32dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Social Lab: Developing Social Robots"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:fontFamily="sans-serif-medium"/>
 
-        <!-- Ch2: HTTP Chat -->
-        <Button
-            android:id="@+id/btnHttpChat"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Ch2 - HTTP Chat"
-            android:textSize="16sp"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="#3498db"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select a feature to test"
+                android:textSize="13sp"
+                android:textColor="#BFDBFE"/>
+        </LinearLayout>
 
-        <!-- Ch3: WebSocket Audio -->
-        <Button
-            android:id="@+id/btnWsAudio"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Ch3 - WebSocket Audio"
-            android:textSize="16sp"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="#2ecc71"/>
-
-        <!-- Ch4: WebRTC Video Streaming -->
-        <Button
-            android:id="@+id/btnWebrtcStream"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Ch4 - Video Streaming"
-            android:textSize="16sp"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="#e67e22"/>
-
-        <!-- Ch5: Video Call -->
-        <Button
-            android:id="@+id/btnVideoCall"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Ch5 - Video Call"
-            android:textSize="16sp"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="#9b59b6"/>
-
-        <!-- Ch6: WoZ Controller -->
-        <Button
-            android:id="@+id/btnWozController"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Ch6 - WoZ Controller"
-            android:textSize="16sp"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="#1abc9c"/>
-
-        <!-- Conversation Design（對話設計） -->
-        <Button
-            android:id="@+id/btnConversationDesign"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:text="Conversation Design"
-            android:textSize="16sp"
-            android:layout_marginBottom="32dp"
-            android:backgroundTint="#e74c3c"/>
-
-        <!-- Settings -->
+        <!-- 設定按鈕：96dp square -->
         <Button
             android:id="@+id/btnSettings"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Server Settings"
-            android:textSize="14sp"/>
-
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:text="⚙"
+            android:textSize="30sp"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#0050A0"
+            android:contentDescription="Settings"/>
     </LinearLayout>
-</ScrollView>
+
+    <!-- 2欄 × 3列按鈕格：前4個各佔1欄，Ch6 佔整排 -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:padding="12dp">
+
+        <!-- Row 1 -->
+        <Button
+            android:id="@+id/btnHttpChat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="Ch2 — HTTP Chat"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#1abc9c"/>
+
+        <Button
+            android:id="@+id/btnWsAudio"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="Ch3 — WebSocket Audio"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#1abc9c"/>
+
+        <!-- Row 2 -->
+        <Button
+            android:id="@+id/btnWebrtcStream"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="Ch4 — Video Streaming"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#3498db"/>
+
+        <Button
+            android:id="@+id/btnVideoCall"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_margin="8dp"
+            android:text="Ch5 — Video Call"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#3498db"/>
+
+        <!-- Row 3: Ch6 佔整排 -->
+        <Button
+            android:id="@+id/btnWozController"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:layout_margin="8dp"
+            android:text="Ch6 — WoZ Controller"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#1abc9c"/>
+
+    </GridLayout>
+
+</LinearLayout>

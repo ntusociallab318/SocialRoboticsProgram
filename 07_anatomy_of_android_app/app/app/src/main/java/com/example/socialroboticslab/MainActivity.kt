@@ -8,7 +8,6 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.example.socialroboticslab.design.ConversationDesignActivity
 import com.example.socialroboticslab.http.HttpChatActivity
 import com.example.socialroboticslab.streaming.VideoStreamActivity
 import com.example.socialroboticslab.videocall.VideoCallLobbyActivity
@@ -41,10 +40,6 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnWozController).setOnClickListener {
             startActivity(Intent(this, WozRobotActivity::class.java))
-        }
-
-        findViewById<Button>(R.id.btnConversationDesign).setOnClickListener {
-            startActivity(Intent(this, ConversationDesignActivity::class.java))
         }
 
         findViewById<Button>(R.id.btnSettings).setOnClickListener {
